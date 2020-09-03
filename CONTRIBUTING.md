@@ -4,7 +4,7 @@ If you would like to contribute to Muze, please start a discussion by [submittin
 
 Alternatively, you can help by resolving any of the [open issues](https://github.com/urmilshroff/muze/issues) as well.
 
-### Pull Requests
+## Pull Requests
 
 Please follow these steps for sending a pull request:
 
