@@ -18,6 +18,13 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v1
       
+    - name: Decode Google services
+      env:
+        FIREBASE_ANDROID: ${{ secrets.FIREBASE_ANDROID }}
+      run: |
+        touch android/app/google-services.json
+        echo $FIREBASE_ANDROID > android/app/google-services.json
+        
     - name: Build debug APK
       run: flutter build apk --debug
       
