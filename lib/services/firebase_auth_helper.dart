@@ -5,7 +5,7 @@ class FirebaseAuthHelper {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  Future<void> signInWithGoogle() async {
+  Future<User> signInWithGoogle() async {
     final GoogleSignInAccount _googleSignInAccount =
         await _googleSignIn.signIn();
 
@@ -25,7 +25,7 @@ class FirebaseAuthHelper {
     assert(!_user.isAnonymous);
     assert(await _user.getIdToken() != null);
 
-    print('${_user.displayName} signed in');
+    return _user;
   }
 
   void signOutWithGoogle() async {
