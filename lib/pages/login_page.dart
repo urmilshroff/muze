@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:muze/models/user_model.dart';
 import 'package:muze/services/firebase_auth_helper.dart';
+import 'package:provider/provider.dart';
 
 class MyLoginPage extends StatelessWidget {
-  Future<void> _saveUserToHive(User _firebaseUser) async {
-    final Box<UserModel> _userBox = await Hive.openBox<UserModel>('user');
-
+  void _saveUserToHive(User _firebaseUser, Box<UserModel> _userBox) {
     final UserModel userModel = UserModel(
       uid: _firebaseUser.uid,
       displayName: _firebaseUser.displayName,
@@ -16,13 +15,13 @@ class MyLoginPage extends StatelessWidget {
       emailId: _firebaseUser.email,
     );
 
-    print('Saving ${userModel.displayName}...');
+    print('Saving user ${userModel.displayName}');
     _userBox.add(userModel);
   }
 
   @override
   Widget build(BuildContext context) {
-    User _firebaseUser;
+    final Box<UserModel> _userBox = Provider.of<Box<UserModel>>(context);
     return Scaffold(
       body: Center(
         child: RaisedButton(
@@ -30,12 +29,19 @@ class MyLoginPage extends StatelessWidget {
           onPressed: () async {
             try {
               await Firebase.initializeApp();
-              _firebaseUser = await FirebaseAuthHelper().signInWithGoogle();
-              print('${_firebaseUser.displayName} signed in');
+              User _firebaseUser =
+                  await FirebaseAuthHelper().signInWithGoogle();
+
+              _saveUserToHive(_firebaseUser, _userBox);
+
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/home',
+                (Route<dynamic> route) => false,
+              );
             } catch (error) {
               print('Error: $error');
             }
-            await _saveUserToHive(_firebaseUser);
           },
         ),
       ),
