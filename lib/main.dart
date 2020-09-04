@@ -12,21 +12,31 @@ void main() async {
   Directory document = await getApplicationDocumentsDirectory();
   Hive.init(document.path);
   Hive.registerAdapter(UserModelAdapter());
-  await Hive.openBox<UserModel>('user');
+  final Box<UserModel> _userBox = await Hive.openBox<UserModel>('user');
 
-  runApp(MyApp());
+  runApp(MyApp(
+    initialRoute: _userBox.isEmpty ? '/login' : '/home',
+  ));
 }
 
 class MyApp extends StatelessWidget {
+  final String initialRoute;
+  MyApp({this.initialRoute});
+
   @override
   Widget build(BuildContext context) {
+    print('initialRoute: $initialRoute');
     return MaterialApp(
       title: 'Muze',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyLoginPage(),
+      initialRoute: initialRoute,
+      routes: {
+        '/login': (context) => MyLoginPage(),
+        '/home': (context) => MyLoginPage(),
+      },
     );
   }
 }
