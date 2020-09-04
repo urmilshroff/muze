@@ -21,6 +21,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^1.10.2
   flutter_launcher_icons: ^0.7.5
+  flutter_native_splash: ^0.1.9
   hive_generator: ^0.7.1
 
 flutter_icons:
@@ -28,9 +29,13 @@ flutter_icons:
   image_path_android: 'assets/icon/icon-legacy.png'
   adaptive_icon_foreground: 'assets/icon/icon-android.png'
   adaptive_icon_background: '#fafafa'
-
   ios: true
   image_path_ios: 'assets/icon/icon-ios.png'
+
+flutter_native_splash:
+  image: assets/branding/logo.png
+  color: "fafafa"
+  android_disable_fullscreen: true
 
 flutter:
   uses-material-design: true
