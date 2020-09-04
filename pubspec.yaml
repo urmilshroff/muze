@@ -17,6 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.7.5
+  flutter_native_splash: ^0.1.9
 
 flutter_icons:
   android: 'launcher_icon'
@@ -26,6 +27,10 @@ flutter_icons:
 
   ios: true
   image_path_ios: 'assets/icon/icon-ios.png'
+
+flutter_native_splash:
+  image: assets/branding/logo.png
+  color: "fafafa"
 
 flutter:
   uses-material-design: true
