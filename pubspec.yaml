@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   cached_network_image: ^2.3.1
+  fab_circular_menu: ^1.0.0
   firebase_auth: ^0.18.0+1
   firebase_core: ^0.5.0
   flutter_screenutil: ^2.3.1

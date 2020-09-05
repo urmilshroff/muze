@@ -6,7 +6,7 @@ import 'package:muze/models/user_model.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/screen_sizes.dart';
 import 'package:muze/utils/text_styles.dart';
-import 'package:muze/widgets/floating_action_button.dart';
+import 'package:muze/widgets/fab_circular_menu.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -51,10 +51,7 @@ class MyHomePage extends StatelessWidget {
         elevation: 0.0,
       ),
       body: Container(),
-      floatingActionButton: MyFloatingActionButton(
-        icon: Icon(Icons.add_rounded),
-        onPressed: () => print('FAB clicked'),
-      ),
+      floatingActionButton: MyFABCircularMenu(),
     );
   }
 }
