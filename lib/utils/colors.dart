@@ -8,4 +8,6 @@ class MyColors {
   static const black = Color(0xff212121);
   static const light = Color(0xffeceff1);
   static const dark = Color(0xff263238);
+  static const splashLight = Color(0xffcfd8dc);
+  static const splashDark = Color(0xff37474f);
 }
