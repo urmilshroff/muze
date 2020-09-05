@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   firebase_auth: ^0.18.0+1
   firebase_core: ^0.5.0
+  flutter_screenutil: ^2.3.1
   google_sign_in: ^4.5.3
   hive: ^1.4.4
   hive_flutter: ^0.3.1
@@ -40,3 +41,16 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
+
+  assets:
+     - assets/branding/
+
+  fonts:
+    - family: LexendDeca
+      fonts:
+        - asset: assets/fonts/LexendDeca/LexendDeca-Regular.ttf
+
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito/Nunito-Bold.ttf
+        - asset: assets/fonts/Nunito/Nunito-Regular.ttf

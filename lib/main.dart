@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:muze/models/user_model.dart';
 import 'package:muze/pages/home_page.dart';
 import 'package:muze/pages/login_page.dart';
+import 'package:muze/utils/colors.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -35,8 +36,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Muze',
         theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
+          primaryColor: MyColors.primary,
+          accentColor: MyColors.secondary,
+          brightness: Brightness.light,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'Nunito',
         ),
         initialRoute: userBox.isEmpty ? '/login' : '/home',
         routes: {
