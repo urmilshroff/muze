@@ -6,6 +6,7 @@ import 'package:muze/models/user_model.dart';
 import 'package:muze/pages/home_page.dart';
 import 'package:muze/pages/login_page.dart';
 import 'package:muze/utils/colors.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -43,9 +44,23 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Nunito',
         ),
         initialRoute: userBox.isEmpty ? '/login' : '/home',
-        routes: {
-          '/login': (context) => MyLoginPage(),
-          '/home': (context) => MyHomePage(),
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case '/login':
+              return PageTransition(
+                child: MyLoginPage(),
+                type: PageTransitionType.fade,
+              );
+              break;
+            case '/home':
+              return PageTransition(
+                child: MyHomePage(),
+                type: PageTransitionType.fade,
+              );
+              break;
+            default:
+              return null;
+          }
         },
       ),
     );
