@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:muze/models/user_model.dart';
 import 'package:muze/services/firebase_auth_helper.dart';
+import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/screen_sizes.dart';
 import 'package:muze/utils/text_styles.dart';
 import 'package:muze/widgets/primary_button.dart';
@@ -33,16 +34,20 @@ class MyLoginPage extends StatelessWidget {
       allowFontScaling: true,
     );
     return Scaffold(
+      backgroundColor: MyColors.white,
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/branding/logo.png',
-                height: 120.0.h,
-                width: 120.0.w,
+              Hero(
+                tag: 'logo',
+                child: Image.asset(
+                  'assets/branding/logo.png',
+                  height: 120.0.h,
+                  width: 120.0.w,
+                ),
               ),
               SizedBox(
                 height: 20.0.h,
