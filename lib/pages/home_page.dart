@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -55,9 +56,13 @@ class MyHomePage extends StatelessWidget {
                       SizedBox(
                         height: 20.0.h,
                       ),
-                      Text(
-                        'A fully open source project\nmade with ❤ by Urmil Shroff',
-                        style: MyTextStyles.body1,
+                      Container(
+                        width: 200.0.w,
+                        child: AutoSizeText(
+                          'A fully open source project made with ❤ by Urmil Shroff',
+                          style: MyTextStyles.body1,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       SizedBox(
                         height: 20.0.h,
