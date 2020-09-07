@@ -7,6 +7,7 @@
 <a href='https://github.com/urmilshroff/muze/network'> <img alt='Forks' src='https://img.shields.io/github/forks/urmilshroff/muze'> </a>
 <a href='https://github.com/urmilshroff/muze/issues'> <img alt='Issues' src='https://img.shields.io/github/issues/urmilshroff/muze'> </a>
 <a href='https://github.com/urmilshroff/muze/actions?query=workflow%3ABuild'> <img alt='Build status' src='https://img.shields.io/github/workflow/status/urmilshroff/muze/Build'> </a>
+<a href='https://pub.dev/packages/effective_dart'> <img alt='Style' src='https://img.shields.io/badge/style-effective_dart-40c4ff.svg'> </a>
 <a href='https://github.com/urmilshroff/muze/blob/main/LICENSE'> <img alt='License' src='https://img.shields.io/github/license/urmilshroff/muze'> </a>
 </p>
 
