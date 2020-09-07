@@ -29,6 +29,7 @@ To build and run the app on your device, do the following:
 
 -   [Install Flutter](https://flutter.dev/docs/get-started/install/) by following the instructions on their website.
 -   Fork/clone this repo to your computer using `git clone https://github.com/urmilshroff/muze.git`.
+-   Create a Firebase project from the [console](https://console.firebase.google.com/) and set it up for Android/iOS.
 -   Connect your devices/emulators and run the app using `flutter run` in the root of the project directory.
 
 ## Implementation
