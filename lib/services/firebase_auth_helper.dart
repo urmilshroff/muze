@@ -28,7 +28,7 @@ class FirebaseAuthHelper {
     return _user;
   }
 
-  void signOutWithGoogle() async {
+  Future<void> signOutWithGoogle() async {
     await _googleSignIn.signOut();
   }
 }

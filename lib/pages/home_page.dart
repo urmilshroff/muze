@@ -1,12 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:muze/models/user_model.dart';
+import 'package:muze/services/firebase_auth_helper.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/screen_sizes.dart';
 import 'package:muze/utils/text_styles.dart';
+import 'package:muze/widgets/primary_button.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -21,6 +24,42 @@ class MyHomePage extends StatelessWidget {
       width: ScreenSizes.screenWidth,
       allowFontScaling: true,
     );
+
+    Future<void> _showInfoPopup() async {
+      return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(
+              'Muze',
+              style: MyTextStyles.heading,
+            ),
+            actions: <Widget>[
+              MyPrimaryButton(
+                text: 'Sign out'.toUpperCase(),
+                onPressed: () async {
+                  try {
+                    await Firebase.initializeApp();
+                    await FirebaseAuthHelper()
+                        .signOutWithGoogle(); // deletes from Firebase
+
+                    _userBox.deleteAt(0); // deletes from Hive
+
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/login',
+                      (Route<dynamic> route) => false,
+                    );
+                  } catch (error) {
+                    print('Error: $error');
+                  }
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
 
     return Scaffold(
       backgroundColor: MyColors.white,
@@ -40,9 +79,13 @@ class MyHomePage extends StatelessWidget {
               'Muze'.toUpperCase(),
               style: MyTextStyles.heading,
             ),
-            CircleAvatar(
-              radius: 18.0.w,
-              backgroundImage: CachedNetworkImageProvider(_userModel.photoUrl),
+            GestureDetector(
+              child: CircleAvatar(
+                radius: 18.0.w,
+                backgroundImage:
+                    CachedNetworkImageProvider(_userModel.photoUrl),
+              ),
+              onTap: () async => _showInfoPopup(),
             ),
           ],
         ),
