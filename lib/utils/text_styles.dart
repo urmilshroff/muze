@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:muze/utils/colors.dart';
 
 class MyTextStyles {
-  static const title = TextStyle(
+  static const title1 = TextStyle(
     color: MyColors.black,
     fontSize: 36.0,
     fontFamily: 'LexendDeca',
   );
 
-  static const heading = TextStyle(
+  static const title2 = TextStyle(
     color: MyColors.black,
     fontSize: 28.0,
+    fontFamily: 'LexendDeca',
+  );
+
+  static const title3 = TextStyle(
+    color: MyColors.black,
+    fontSize: 24.0,
     fontFamily: 'LexendDeca',
   );
 

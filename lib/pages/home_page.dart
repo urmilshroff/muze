@@ -30,32 +30,68 @@ class MyHomePage extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(
-              'Muze',
-              style: MyTextStyles.heading,
+            content: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 240.0.h,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/branding/logo.png',
+                            height: 32.0.h,
+                            width: 32.0.w,
+                          ),
+                          Text(
+                            'Muze',
+                            style: MyTextStyles.title3,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20.0.h,
+                      ),
+                      Text(
+                        'A fully open source project\nmade with ❤ by Urmil Shroff',
+                        style: MyTextStyles.body1,
+                      ),
+                      SizedBox(
+                        height: 20.0.h,
+                      ),
+                      MyPrimaryButton(
+                        text: 'Sign out'.toUpperCase(),
+                        onPressed: () async {
+                          try {
+                            await Firebase.initializeApp();
+                            await FirebaseAuthHelper()
+                                .signOutWithGoogle(); // deletes from Firebase
+
+                            _userBox.deleteAt(0); // deletes from Hive
+
+                            Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              '/login',
+                              (Route<dynamic> route) => false,
+                            );
+                          } catch (error) {
+                            print('Error: $error');
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            actions: <Widget>[
-              MyPrimaryButton(
-                text: 'Sign out'.toUpperCase(),
-                onPressed: () async {
-                  try {
-                    await Firebase.initializeApp();
-                    await FirebaseAuthHelper()
-                        .signOutWithGoogle(); // deletes from Firebase
-
-                    _userBox.deleteAt(0); // deletes from Hive
-
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      '/login',
-                      (Route<dynamic> route) => false,
-                    );
-                  } catch (error) {
-                    print('Error: $error');
-                  }
-                },
-              ),
-            ],
+            backgroundColor: MyColors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 3.0,
           );
         },
       );
@@ -77,7 +113,7 @@ class MyHomePage extends StatelessWidget {
             ),
             Text(
               'Muze'.toUpperCase(),
-              style: MyTextStyles.heading,
+              style: MyTextStyles.title2,
             ),
             GestureDetector(
               child: CircleAvatar(

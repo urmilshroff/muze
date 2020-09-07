@@ -54,7 +54,7 @@ class MyLoginPage extends StatelessWidget {
               ),
               Text(
                 'Muze'.toUpperCase(),
-                style: MyTextStyles.title,
+                style: MyTextStyles.title1,
               ),
               SizedBox(
                 height: 20.0.h,
