@@ -27,12 +27,16 @@ class MyLoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Box<UserModel> _userBox = Provider.of<Box<UserModel>>(context);
+
     ScreenUtil.init(
       context,
-      height: ScreenSizes.screenHeight,
-      width: ScreenSizes.screenWidth,
+      designSize: Size(
+        ScreenSizes.screenWidth,
+        ScreenSizes.screenHeight,
+      ),
       allowFontScaling: true,
     );
+
     return Scaffold(
       backgroundColor: MyColors.white,
       body: Row(

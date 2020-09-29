@@ -21,8 +21,10 @@ class MyHomePage extends StatelessWidget {
 
     ScreenUtil.init(
       context,
-      height: ScreenSizes.screenHeight,
-      width: ScreenSizes.screenWidth,
+      designSize: Size(
+        ScreenSizes.screenWidth,
+        ScreenSizes.screenHeight,
+      ),
       allowFontScaling: true,
     );
 
