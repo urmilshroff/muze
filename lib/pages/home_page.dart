@@ -22,8 +22,8 @@ class MyHomePage extends StatelessWidget {
     ScreenUtil.init(
       context,
       designSize: Size(
-        ScreenSizes.screenWidth,
-        ScreenSizes.screenHeight,
+        MyScreenSizes.screenWidth,
+        MyScreenSizes.screenHeight,
       ),
       allowFontScaling: true,
     );
@@ -105,7 +105,6 @@ class MyHomePage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: MyColors.white,
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -132,9 +131,6 @@ class MyHomePage extends StatelessWidget {
             ),
           ],
         ),
-        centerTitle: true,
-        backgroundColor: MyColors.white,
-        elevation: 0.0,
       ),
       body: Container(),
       floatingActionButton: FabCircularMenu(

@@ -1,5 +1,5 @@
-class ScreenSizes {
+class MyScreenSizes {
   // used to scale content appropriately
-  static const screenWidth = 375.0;
-  static const screenHeight = 812.0;
+  static double screenWidth = 375.0;
+  static double screenHeight = 812.0;
 }

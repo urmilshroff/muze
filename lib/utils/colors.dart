@@ -1,13 +1,13 @@
 import 'dart:ui';
 
 class MyColors {
-  static const primary = Color(0xff6200ea);
-  static const secondary = Color(0xff0091ea);
-  static const tertiary = Color(0xff00e5ff);
-  static const white = Color(0xfffafafa);
-  static const black = Color(0xff212121);
-  static const light = Color(0xffeceff1);
-  static const dark = Color(0xff263238);
-  static const splashLight = Color(0xffcfd8dc);
-  static const splashDark = Color(0xff37474f);
+  static Color primary = Color(0xff6200ea);
+  static Color secondary = Color(0xff0091ea);
+  static Color tertiary = Color(0xff00e5ff);
+  static Color white = Color(0xfffafafa);
+  static Color black = Color(0xff212121);
+  static Color light = Color(0xffeceff1);
+  static Color dark = Color(0xff263238);
+  static Color splashLight = Color(0xffcfd8dc);
+  static Color splashDark = Color(0xff37474f);
 }

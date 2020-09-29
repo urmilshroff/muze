@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:muze/models/user_model.dart';
 import 'package:muze/services/firebase_auth_helper.dart';
-import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/screen_sizes.dart';
 import 'package:muze/utils/text_styles.dart';
 import 'package:muze/widgets/primary_button.dart';
@@ -31,14 +30,13 @@ class MyLoginPage extends StatelessWidget {
     ScreenUtil.init(
       context,
       designSize: Size(
-        ScreenSizes.screenWidth,
-        ScreenSizes.screenHeight,
+        MyScreenSizes.screenWidth,
+        MyScreenSizes.screenHeight,
       ),
       allowFontScaling: true,
     );
 
     return Scaffold(
-      backgroundColor: MyColors.white,
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

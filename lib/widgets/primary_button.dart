@@ -18,7 +18,6 @@ class MyPrimaryButton extends StatelessWidget {
         style: MyTextStyles.button,
       ),
       color: MyColors.light,
-      splashColor: MyColors.splashLight,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
