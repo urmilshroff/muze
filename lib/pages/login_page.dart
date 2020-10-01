@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
@@ -72,7 +71,6 @@ class MyLoginPage extends StatelessWidget {
                 text: 'Sign in'.toUpperCase(),
                 onPressed: () async {
                   try {
-                    await Firebase.initializeApp();
                     User _firebaseUser =
                         await FirebaseAuthHelper().signInWithGoogle();
 

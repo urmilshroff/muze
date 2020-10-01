@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:muze/models/user_model.dart';
@@ -13,6 +14,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final Box<UserModel> _userBox = await _hiveSetup();
+  await Firebase.initializeApp();
   runApp(MyApp(userBox: _userBox));
 }
 
