@@ -13,8 +13,8 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final Box<UserModel> _userBox = await _hiveSetup();
   await Firebase.initializeApp();
+  final Box<UserModel> _userBox = await _hiveSetup();
   runApp(MyApp(userBox: _userBox));
 }
 
@@ -32,10 +32,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<Box<UserModel>>(create: (context) => userBox),
-      ],
+    return Provider<Box<UserModel>>(
+      create: (context) => userBox,
       child: MaterialApp(
         title: 'Muze',
         theme: MyAppTheme.light,
