@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:muze/utils/colors.dart';
-import 'package:muze/utils/text_styles.dart';
 
 class MyPrimaryButton extends StatelessWidget {
   final String text;
@@ -15,9 +13,13 @@ class MyPrimaryButton extends StatelessWidget {
     return FlatButton(
       child: Text(
         text,
-        style: MyTextStyles.button,
+        style: TextStyle(
+          color: Theme.of(context).accentColor,
+          fontSize: 16.0,
+          fontFamily: 'LexendDeca',
+        ),
       ),
-      color: MyColors.light,
+      color: Theme.of(context).errorColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
