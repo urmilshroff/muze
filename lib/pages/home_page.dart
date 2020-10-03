@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
@@ -9,11 +10,16 @@ import 'package:muze/models/user_model.dart';
 import 'package:muze/services/firebase_auth_helper.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/screen_sizes.dart';
-import 'package:muze/utils/text_styles.dart';
 import 'package:muze/widgets/primary_button.dart';
 import 'package:provider/provider.dart';
+import 'package:muze/utils/config.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final Box<UserModel> _userBox = Provider.of<Box<UserModel>>(context);
@@ -37,7 +43,10 @@ class MyHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 240.0.h,
+                  color: Theme.of(context).primaryColor,
+                  //fixed LayoutBuilder does not support returning intrinsic dimensions error on smaller devices.
+                  width: MediaQuery.of(context).size.width - 140,
+                  height: MediaQuery.of(context).size.height - 550,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -51,7 +60,11 @@ class MyHomePage extends StatelessWidget {
                           ),
                           Text(
                             'Muze',
-                            style: MyTextStyles.title3,
+                            style: TextStyle(
+                              color: Theme.of(context).accentColor,
+                              fontSize: 24.0,
+                              fontFamily: 'LexendDeca',
+                            ),
                           ),
                         ],
                       ),
@@ -62,7 +75,10 @@ class MyHomePage extends StatelessWidget {
                         width: 200.0.w,
                         child: AutoSizeText(
                           'A fully open source project made with ❤ by Urmil Shroff',
-                          style: MyTextStyles.body1,
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontFamily: 'Nunito',
+                              color: Theme.of(context).accentColor),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -94,10 +110,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            backgroundColor: MyColors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
+            backgroundColor: Theme.of(context).primaryColor,
             elevation: 3.0,
           );
         },
@@ -119,7 +132,6 @@ class MyHomePage extends StatelessWidget {
             ),
             Text(
               'Muze'.toUpperCase(),
-              style: MyTextStyles.title2,
             ),
             GestureDetector(
               child: CircleAvatar(
@@ -134,30 +146,51 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Container(),
       floatingActionButton: FabCircularMenu(
-        fabColor: MyColors.primary,
-        fabOpenColor: MyColors.secondary,
-        fabOpenIcon: Icon(Icons.menu_rounded, color: MyColors.white),
-        fabCloseIcon: Icon(Icons.close_rounded, color: MyColors.white),
-        ringColor: MyColors.primary,
+        fabColor: MyColors.maze,
+        fabOpenColor: MyColors.badgeColor,
+        fabOpenIcon:
+            Icon(Icons.menu_rounded, color: Theme.of(context).primaryColor),
+        fabCloseIcon:
+            Icon(Icons.close_rounded, color: Theme.of(context).primaryColor),
+        ringColor: MyColors.maze,
         ringDiameter: 360.0.w,
         ringWidth: 60.0.w,
         fabSize: 56.0,
         fabElevation: 3.0,
         children: [
           IconButton(
-            icon: Icon(Icons.person_add_rounded, color: MyColors.white),
+            icon: Icon(Icons.brightness_medium_rounded,
+                color: Theme.of(context).primaryColor),
             iconSize: 30.0.w,
-            onPressed: null,
+            highlightColor: Theme.of(context).splashColor,
+            splashColor: Theme.of(context).splashColor,
+            onPressed: () {
+              currentTheme.switchTheme();
+            },
           ),
           IconButton(
-            icon: Icon(Icons.pause_rounded, color: MyColors.white),
-            iconSize: 36.0.w,
-            onPressed: null,
+            icon: Icon(Icons.person_add_rounded,
+                color: Theme.of(context).primaryColor),
+            iconSize: 30.0.w,
+            highlightColor: Theme.of(context).splashColor,
+            splashColor: Theme.of(context).splashColor,
+            onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.play_arrow_rounded, color: MyColors.white),
+            icon: Icon(Icons.pause_outlined,
+                color: Theme.of(context).primaryColor),
             iconSize: 36.0.w,
-            onPressed: null,
+            highlightColor: Theme.of(context).splashColor,
+            splashColor: Theme.of(context).splashColor,
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.play_arrow_rounded,
+                color: Theme.of(context).primaryColor),
+            iconSize: 36.0.w,
+            highlightColor: Theme.of(context).splashColor,
+            splashColor: Theme.of(context).splashColor,
+            onPressed: () {},
           ),
         ],
       ),
