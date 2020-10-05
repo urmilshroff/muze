@@ -1,13 +1,15 @@
 import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class MyColors {
-  static Color primary = Color(0xff6200ea);
-  static Color secondary = Color(0xff0091ea);
+  static Color lightPrimary = Color(0xfffcfcff);
+  static Color darkPrimary = Colors.black;
+  static Color lightAccent = Colors.blueGrey[900];
+  static Color darkAccent = Colors.white;
+  static Color lightBG = Color(0xfffcfcff);
+  static Color darkBG = Colors.black;
+  static Color darkBG1 = Colors.grey[900];
+  static Color maze = Color(0xff6200ea);
+  static Color badgeColor = Color(0xff0091ea);
   static Color tertiary = Color(0xff00e5ff);
-  static Color white = Color(0xfffafafa);
-  static Color black = Color(0xff212121);
-  static Color light = Color(0xffeceff1);
-  static Color dark = Color(0xff263238);
-  static Color splashLight = Color(0xffcfd8dc);
-  static Color splashDark = Color(0xff37474f);
 }

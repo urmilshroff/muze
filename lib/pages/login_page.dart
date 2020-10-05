@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 import 'package:muze/models/user_model.dart';
 import 'package:muze/services/firebase_auth_helper.dart';
 import 'package:muze/utils/screen_sizes.dart';
-import 'package:muze/utils/text_styles.dart';
 import 'package:muze/widgets/primary_button.dart';
 import 'package:provider/provider.dart';
 
@@ -53,17 +52,21 @@ class MyLoginPage extends StatelessWidget {
               SizedBox(
                 height: 20.0.h,
               ),
-              Text(
-                'Muze'.toUpperCase(),
-                style: MyTextStyles.title1,
-              ),
+              Text('Muze'.toUpperCase(),
+                  style: TextStyle(
+                    color: Theme.of(context).accentColor,
+                    fontSize: 36.0,
+                    fontFamily: 'LexendDeca',
+                  )),
               SizedBox(
                 height: 20.0.h,
               ),
-              Text(
-                'Jam tunes with your friends!',
-                style: MyTextStyles.body1,
-              ),
+              Text('Jam tunes with your friends!',
+                  style: TextStyle(
+                    color: Theme.of(context).accentColor,
+                    fontSize: 18.0,
+                    fontFamily: 'Nunito',
+                  )),
               SizedBox(
                 height: 20.0.h,
               ),
