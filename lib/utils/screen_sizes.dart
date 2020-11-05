@@ -1,3 +1,4 @@
+// ignore: avoid_classes_with_only_static_members
 class MyScreenSizes {
   // used to scale content appropriately
   static double screenWidth = 375.0;

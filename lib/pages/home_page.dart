@@ -16,8 +16,8 @@ import 'package:provider/provider.dart';
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Box<UserModel> _userBox = Provider.of<Box<UserModel>>(context);
-    final UserModel _userModel = _userBox.values.first;
+    final _userBox = Provider.of<Box<UserModel>>(context);
+    final _userModel = _userBox.values.first;
 
     ScreenUtil.init(
       context,
@@ -31,7 +31,7 @@ class MyHomePage extends StatelessWidget {
     Future<void> _showInfoPopup() async {
       return showDialog<void>(
         context: context,
-        builder: (BuildContext context) {
+        builder: (context) {
           return AlertDialog(
             content: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -61,6 +61,7 @@ class MyHomePage extends StatelessWidget {
                       Container(
                         width: 200.0.w,
                         child: AutoSizeText(
+                          // ignore: lines_longer_than_80_chars
                           'A fully open source project made with ❤ by Urmil Shroff',
                           style: MyTextStyles.body1,
                           textAlign: TextAlign.center,
@@ -82,8 +83,9 @@ class MyHomePage extends StatelessWidget {
                             Navigator.pushNamedAndRemoveUntil(
                               context,
                               '/login',
-                              (Route<dynamic> route) => false,
+                              (route) => false,
                             );
+                            // ignore: avoid_catches_without_on_clauses
                           } catch (error) {
                             print('Error: $error');
                           }

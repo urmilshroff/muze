@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 
 class MyLoginPage extends StatelessWidget {
   void _saveUserToHive(User _firebaseUser, Box<UserModel> _userBox) {
-    final UserModel userModel = UserModel(
+    final userModel = UserModel(
       uid: _firebaseUser.uid,
       displayName: _firebaseUser.displayName,
       photoUrl: _firebaseUser.photoURL,
@@ -24,7 +24,7 @@ class MyLoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Box<UserModel> _userBox = Provider.of<Box<UserModel>>(context);
+    final _userBox = Provider.of<Box<UserModel>>(context);
 
     ScreenUtil.init(
       context,
@@ -71,7 +71,7 @@ class MyLoginPage extends StatelessWidget {
                 text: 'Sign in'.toUpperCase(),
                 onPressed: () async {
                   try {
-                    User _firebaseUser =
+                    var _firebaseUser =
                         await FirebaseAuthHelper().signInWithGoogle();
 
                     _saveUserToHive(_firebaseUser, _userBox);
@@ -79,8 +79,9 @@ class MyLoginPage extends StatelessWidget {
                     Navigator.pushNamedAndRemoveUntil(
                       context,
                       '/home',
-                      (Route<dynamic> route) => false,
+                      (route) => false,
                     );
+                    // ignore: avoid_catches_without_on_clauses
                   } catch (error) {
                     print('Error: $error');
                   }

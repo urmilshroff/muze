@@ -1,15 +1,9 @@
-include:
-  - package:pedantic/analysis_options.yaml
-  - package:effective_dart/analysis_options.yaml
+include: package:effective_dart/analysis_options.yaml
+
+analyzer:
+  strong-mode:
+    implicit-dynamic: false
 
 linter:
   rules:
-    - annotate_overrides
-    - await_only_futures
-    - camel_case_types
-    - cancel_subscriptions
-    - close_sinks
-    - comment_references
-    - constant_identifier_names
-    - control_flow_in_finally
-    - empty_statements
+    public_member_api_docs: false

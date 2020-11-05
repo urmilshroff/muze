@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -14,15 +12,15 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  final Box<UserModel> _userBox = await _hiveSetup();
+  final _userBox = await _hiveSetup();
   runApp(MyApp(userBox: _userBox));
 }
 
 Future<Box<UserModel>> _hiveSetup() async {
-  Directory document = await getApplicationDocumentsDirectory();
+  var document = await getApplicationDocumentsDirectory();
   Hive.init(document.path);
   Hive.registerAdapter(UserModelAdapter());
-  final Box<UserModel> _userBox = await Hive.openBox<UserModel>('userModel');
+  final _userBox = await Hive.openBox<UserModel>('userModel');
   return _userBox;
 }
 
@@ -41,13 +39,13 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/login':
-              return PageTransition(
+              return PageTransition<void>(
                 child: MyLoginPage(),
                 type: PageTransitionType.fade,
               );
               break;
             case '/home':
-              return PageTransition(
+              return PageTransition<void>(
                 child: MyHomePage(),
                 type: PageTransitionType.fade,
               );
