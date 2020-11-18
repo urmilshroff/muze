@@ -9,6 +9,8 @@
 <a href='https://pub.dev/packages/effective_dart'> <img alt='Style' src='https://img.shields.io/badge/style-effective_dart-40c4ff.svg'> </a>
 </p>
 
+**NOTE:** this project isn't dead, but development is extremely slow as I'm busy with my full-time job. I'll continue to work on Muze as and when I'm free.
+
 ## About
 
 Jam tunes with your friends! Muze can be thought of as a [Netflix Party](https://www.netflixparty.com/) for music. The idea is to create 'rooms' which your friends can join and send music to. Anyone can play/pause a track which will then be play/paused for everyone in realtime.
