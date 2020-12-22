@@ -78,9 +78,9 @@ class MyHomePage extends StatelessWidget {
                             await FirebaseAuthHelper()
                                 .signOutWithGoogle(); // deletes from Firebase
 
-                            _userBox.deleteAt(0); // deletes from Hive
+                            await _userBox.deleteAt(0); // deletes from Hive
 
-                            Navigator.pushNamedAndRemoveUntil(
+                            await Navigator.pushNamedAndRemoveUntil(
                               context,
                               '/login',
                               (route) => false,

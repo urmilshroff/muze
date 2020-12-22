@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-// ignore: avoid_classes_with_only_static_members
 class MyColors {
   static Color primary = Color(0xff6200ea);
   static Color secondary = Color(0xff0091ea);

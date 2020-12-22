@@ -76,7 +76,7 @@ class MyLoginPage extends StatelessWidget {
 
                     _saveUserToHive(_firebaseUser, _userBox);
 
-                    Navigator.pushNamedAndRemoveUntil(
+                    await Navigator.pushNamedAndRemoveUntil(
                       context,
                       '/home',
                       (route) => false,

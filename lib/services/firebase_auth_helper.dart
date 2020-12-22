@@ -11,7 +11,7 @@ class FirebaseAuthHelper {
     final _googleSignInAuthentication =
         await _googleSignInAccount.authentication;
 
-    final _authCredential = GoogleAuthProvider.getCredential(
+    final _authCredential = GoogleAuthProvider.credential(
       accessToken: _googleSignInAuthentication.accessToken,
       idToken: _googleSignInAuthentication.idToken,
     );
