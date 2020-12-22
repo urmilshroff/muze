@@ -6,7 +6,6 @@
 <a href='https://github.com/urmilshroff/muze/stargazers'> <img alt='Stars' src='https://img.shields.io/github/stars/urmilshroff/muze'> </a>
 <a href='https://github.com/urmilshroff/muze/issues'> <img alt='Issues' src='https://img.shields.io/github/issues/urmilshroff/muze'> </a>
 <a href='https://github.com/urmilshroff/muze/actions?query=workflow%3ABuild'> <img alt='Build' src='https://img.shields.io/github/workflow/status/urmilshroff/muze/Build'> </a>
-<a href='https://pub.dev/packages/effective_dart'> <img alt='Style' src='https://img.shields.io/badge/style-effective_dart-40c4ff.svg'> </a>
 </p>
 
 **NOTE:** this project isn't dead, but development is extremely slow as I'm busy with my full-time job. I'll continue to work on Muze as and when I'm free.

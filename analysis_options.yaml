@@ -1,9 +1,1 @@
-include: package:effective_dart/analysis_options.yaml
-
-analyzer:
-  strong-mode:
-    implicit-dynamic: false
-
-linter:
-  rules:
-    public_member_api_docs: false
+include: package:pedantic/analysis_options.yaml
