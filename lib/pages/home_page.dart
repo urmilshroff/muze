@@ -8,7 +8,6 @@ import 'package:hive/hive.dart';
 import 'package:muze/models/user_model.dart';
 import 'package:muze/services/firebase_auth_helper.dart';
 import 'package:muze/utils/colors.dart';
-import 'package:muze/utils/screen_sizes.dart';
 import 'package:muze/utils/text_styles.dart';
 import 'package:muze/widgets/primary_button.dart';
 import 'package:provider/provider.dart';
@@ -18,15 +17,6 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _userBox = Provider.of<Box<UserModel>>(context);
     final _userModel = _userBox.values.first;
-
-    ScreenUtil.init(
-      context,
-      designSize: Size(
-        MyScreenSizes.screenWidth,
-        MyScreenSizes.screenHeight,
-      ),
-      allowFontScaling: true,
-    );
 
     Future<void> _showInfoPopup() async {
       return showDialog<void>(
