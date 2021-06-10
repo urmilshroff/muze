@@ -8,7 +8,7 @@
 <a href='https://github.com/urmilshroff/muze/actions?query=workflow%3ABuild'> <img alt='Build' src='https://img.shields.io/github/workflow/status/urmilshroff/muze/Build'> </a>
 </p>
 
-**NOTE:** this project isn't dead, but development is extremely slow as I'm busy with my full-time job. I'll continue to work on Muze as and when I'm free.
+**NOTE:** this project is dead, but I may pick it up again if I'm free since the idea is still cool.
 
 ## About
 
